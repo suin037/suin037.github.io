@@ -40,17 +40,28 @@ interests: >-
 #       </ul>
 #     date: Aug. 2025
 
+# awards:
+#   - name: >-
+#       <div class="award-title-with-thumb">
+#         <img src="/assets/photos/NURI.png" alt="Camp photo" class="award-thumb">
+#         <div class="award-title">2025 Creative Convergence Design Engineering Camp, 4th Place</div>
+#       </div>
+#       <ul class="mb-0 award-bullets">
+#         <li>Participated in a camp organized by the Engineering Education Innovation Centers of Yonsei, Ewha, and Hongik Universities</li>
+#         <li>Developed “Nuri”, a personalized app under the theme of “Low-carbon product/service design for university student wellness”</li>
+#       </ul>
+#     date: Aug. 2025
+
 awards:
   - name: >-
-      <div class="award-title-with-thumb">
-        <img src="/assets/photos/NURI.png" alt="Camp photo" class="award-thumb">
-        <div class="award-title">2025 Creative Convergence Design Engineering Camp, 4th Place</div>
-      </div>
-      <ul class="mb-0 award-bullets">
+      <img src="/assets/photos/NURI.png" alt="Nuri poster" class="award-banner">
+      2025 Creative Convergence Design Engineering Camp, 4th Place
+      <ul class="mb-0">
         <li>Participated in a camp organized by the Engineering Education Innovation Centers of Yonsei, Ewha, and Hongik Universities</li>
         <li>Developed “Nuri”, a personalized app under the theme of “Low-carbon product/service design for university student wellness”</li>
       </ul>
     date: Aug. 2025
+
 
 
 
