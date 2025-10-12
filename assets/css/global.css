@@ -1,11 +1,16 @@
-/* ==== Row style like News: divider + fixed right date column ==== */
+/* ==== News와 같은 라인 스타일 + 오른쪽 날짜 고정 ==== */
 :root{
-  --row-border: #e9ecef;      /* 연한 구분선 */
-  --row-pad: 18px;            /* 행 여백 */
-  --date-width: 180px;        /* 날짜 고정폭 (160~200px 조절 가능) */
+  /* 공통 */
+  --row-border: #e9ecef;   /* 연한 구분선 */
+  --row-pad: 18px;         /* 행 여백 */
+  --date-width: 180px;     /* 오른쪽 날짜 고정 폭 */
+
+  /* Awards 썸네일 */
+  --award-pic: 56px;       /* 썸네일 가로(비율유지). 48~64px 추천 */
+  --award-gap: 12px;       /* 썸네일과 텍스트 사이 여백 */
 }
 
-/* Education / Experience: 한 줄 + 구분선 */
+/* Education / Experience: 한 줄(row) + 구분선 */
 .card ul.list-unstyled > li.media{
   display: flex;
   align-items: flex-start;
@@ -14,10 +19,7 @@
 }
 .card ul.list-unstyled > li.media:last-child{ border-bottom: none; }
 
-
-
-
-/* 오른쪽 날짜 고정/정렬 (News 스타일) */
+/* 오른쪽 날짜(News처럼) */
 .card .d-flex .no-break{
   flex: 0 0 var(--date-width);
   max-width: var(--date-width);
@@ -28,22 +30,18 @@
   white-space: nowrap;
 }
 
-/* 본문이 날짜를 밀지 않도록 */
+/* 본문이 날짜를 밀지 않도록(한 줄 레이아웃 안전장치) */
 .media-body{ flex: 1 1 auto; min-width: 0; }
 
-/* 행 내부 간격 */
+/* 행 내부 간격(제목줄 다음 bullet이 조금 띄워지도록) */
 .card ul.list-unstyled > li.media .small,
 .card ul.list > li > .d-flex + ul { margin-top: 6px; }
 
-/* 작은 화면에서 날짜 폭 축소 */
-@media (max-width: 768px){
-  :root { --date-width: 150px; }
-}
-@media (max-width: 576px){
-  :root { --date-width: 130px; }
-}
+/* 화면 좁을 때 날짜 폭 축소 */
+@media (max-width: 768px){ :root { --date-width: 150px; } }
+@media (max-width: 576px){ :root { --date-width: 130px; } }
 
-/* --- Personal Life: 항상 가로 스크롤 --- */
+/* --- Personal Life: 가로 스크롤 갤러리 --- */
 .pl-gallery{
   display: flex;
   flex-wrap: nowrap !important;   /* 줄바꿈 금지 */
@@ -72,46 +70,35 @@
   height: 360px;
   object-fit: cover;
 }
-.pl-cap{
-  padding: 6px 10px 10px;
-  color: #5f6368;
-}
+.pl-cap{ padding: 6px 10px 10px; color: #5f6368; }
 
-/* 모바일에서 조금 더 크게 */
 @media (max-width:576px){
   .pl-item{ min-width: 75%; }
   .pl-item img{ height: 260px; }
 }
 
 /* ===== Awards 썸네일: 텍스트 침범 방지 + 고정 크기 ===== */
-:root{
-  --award-pic: 56px;     /* 썸네일 가로(=세로 비율 유지). 48~64px에서 취향대로 */
-  --award-gap: 12px;     /* 썸네일과 텍스트 사이 여백 */
-}
-
-/* 제목 칸에 썸네일 자리(패딩) 미리 확보 + 행 높이 확보 */
+/* 제목 칸을 포지셔닝 기준으로 만들고, 썸네일 자리만큼 오른쪽 패딩 확보 */
 .card ul.list > li > .d-flex > div:first-child{
   position: relative;
   padding-right: calc(var(--award-pic) + var(--award-gap));
-  min-height: var(--award-pic);              /* 행 높이가 썸네일보다 작아지지 않도록 */
+  min-height: var(--award-pic); /* 행 높이가 썸네일보다 작아지지 않게 */
 }
 
-/* 썸네일: 제목 칸의 오른쪽에, 세로 중앙 고정 (날짜 칼럼은 별개라 겹치지 않음) */
+/* 썸네일: 제목 칸의 오른쪽, 세로 중앙 고정 (날짜 칼럼과는 별도 영역) */
 .card ul.list > li > .d-flex > div:first-child img.award-pic{
   position: absolute;
   top: 50%;
   right: var(--award-gap);
   transform: translateY(-50%);
   width: var(--award-pic);
-  height: auto;                               /* 비율 유지 */
-  max-height: 64px;                           /* 안전 상한 */
+  height: auto;                 /* 비율 유지 */
+  max-height: 64px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-/* 모바일에서는 조금 더 작게 */
+/* 모바일에서는 썸네일 조금 줄이기 */
 @media (max-width: 576px){
   :root{ --award-pic: 44px; }
 }
-
-
