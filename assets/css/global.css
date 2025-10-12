@@ -101,30 +101,4 @@
   .pl-item img{ height: 260px; }
 }
 
-/* =========================================
-   4) Awards: 제목 옆 썸네일 (텍스트 침범 방지)
-   ========================================= */
-/* 제목 칸을 포지셔닝 기준으로 만들고, 썸네일 자리만큼 오른쪽 패딩 확보 */
-.card ul.list > li > .d-flex > div:first-child{
-  position: relative;
-  padding-right: calc(var(--award-pic) + var(--award-gap));
-  min-height: var(--award-pic);  /* 행 높이가 썸네일보다 작아지지 않게 */
-}
 
-/* 썸네일을 제목 칸의 오른쪽/세로 중앙에 고정 (날짜 칼럼과 영역 분리) */
-.card ul.list > li > .d-flex > div:first-child img.award-pic{
-  position: absolute;
-  top: 50%;
-  right: var(--award-gap);
-  transform: translateY(-50%);
-  width: var(--award-pic);
-  height: auto;                 /* 비율 유지 */
-  max-height: 64px;             /* 안전 상한 */
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-/* 모바일에서 썸네일 크기 조정 */
-@media (max-width: 576px){
-  :root{ --award-pic: 44px; }
-}
