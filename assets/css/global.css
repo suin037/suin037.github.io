@@ -132,3 +132,12 @@
   margin-top: 12px;     /* 기본 6px → 12px. 원하면 10~16px로 조절 */
 }
 
+/* Awards: 제목 글자 크기 키우기 */
+.card ul.list.small > li > .d-flex > div:first-child {
+  font-size: 1.2rem; /* 원하는 크기로 조절하세요 (예: 1.2rem, 1.3rem, 20px) */
+}
+
+/* Awards: 제목과 아래 설명(bullet) 사이 간격 늘리기 */
+.card ul.list.small > li > .d-flex + ul {
+  margin-top: 12px; /* 원하는 간격으로 조절하세요 (예: 10px, 15px) */
+}
