@@ -90,3 +90,53 @@ div.lazy {
     font-family: Courier, monospace;
 }
 
+/* ==== Row style like News: divider + fixed right date column ==== */
+
+/* 1) Education/Experience: 각 항목(li.media)을 한 줄(row)로 만들고 구분선 적용 */
+.card ul.list-unstyled > li.media{
+  display: flex;
+  border-bottom: 1px solid rgba(0,0,0,.10);
+  padding: 12px 0;
+}
+.card ul.list-unstyled > li.media:last-child{
+  border-bottom: none;
+}
+
+/* 2) Awards: li 안의 .d-flex(제목 + 날짜)에도 같은 구분선 적용 */
+.card ul.list > li > .d-flex{
+  border-bottom: 1px solid rgba(0,0,0,.10);
+  padding: 12px 0;
+}
+.card ul.list > li:last-child > .d-flex{
+  border-bottom: none;
+}
+
+/* 3) 오른쪽 날짜 컬럼을 News처럼 통일(고정 폭, 우측 정렬, 이탤릭/그레이) */
+.card .d-flex .no-break{
+  margin-left: auto;
+  text-align: right;
+  color: #4a4f55;
+  font-style: italic;
+  flex: 0 0 180px;   /* 날짜 폭(News 느낌). 필요시 160~200px로 조절 */
+  max-width: 180px;
+}
+.card li.media .media-body > .d-flex > div:first-child{
+  padding-right: 16px;  /* 날짜 칼럼과 간격 */
+}
+
+/* 4) 행 내부 타이포 밀도/간격 살짝 정리(선택) */
+.card ul.list-unstyled > li.media .small,
+.card ul.list > li > .d-flex + ul {
+  margin-top: 6px;
+}
+.card ul.list-unstyled > li.media .media-body > div:first-child {
+  font-weight: 600;
+}
+
+/* 5) 모바일에서 날짜 폭 살짝 줄이기 */
+@media (max-width: 576px){
+  .card .d-flex .no-break{
+    flex-basis: 140px;
+    max-width: 140px;
+  }
+}
