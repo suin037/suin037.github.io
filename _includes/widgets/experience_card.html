@@ -102,3 +102,27 @@
   </div>
 </div>
 {% endif %}
+
+{% if site.data.profile.skills %}
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="card border-0 shadow-sm bg-white">
+      <div class="card-header bg-white border-0">
+        <h6 class="mb-0"><i class="fas fa-tools mr-2"></i>Skills</h6>
+      </div>
+      <div class="card-body pt-2 pb-4 px-4">
+        <ul class="list-unstyled mb-0">
+          {% for s in site.data.profile.skills %}
+          <li class="mb-2">
+            <strong>{{ s.category }}:</strong>
+            {% for it in s.items %}
+              <span class="badge badge-light rounded-xl mr-1">{{ it }}</span>
+            {% endfor %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
