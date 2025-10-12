@@ -119,4 +119,16 @@
 
 /* 필요시 날짜 칼럼 폭 미세 조정 */
 :root { --date-width: 180px; }   /* 160~200px 범위에서 조절 */
+/* === Awards: bigger title + more gap before bullets === */
+
+/* 1) 제목 글자 크기 키우기 (굵기는 그대로) */
+.card .list.small > li > .d-flex > div:first-child{
+  font-size: 1.25rem;   /* ← 20px 정도. 1.3rem/1.4rem로 더 키워도 OK */
+  font-weight: 600;
+}
+
+/* 2) 제목과 bullet 사이 간격 늘리기 */
+.card .list.small > li > .d-flex + ul{
+  margin-top: 12px;     /* 기본 6px → 12px. 원하면 10~16px로 조절 */
+}
 
