@@ -90,3 +90,55 @@ div.lazy {
     font-family: Courier, monospace;
 }
 
+/* ===== Typography overrides (add at the END of global.css) ===== */
+/* 1) 웹폰트 로드: Inter(영문) + Noto Sans KR(한글) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* 2) 기본 본문 폰트/크기/줄간격 통일 */
+:root{
+  --font-body: 'Inter','Noto Sans KR',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';
+  --font-size-base: 16px;   /* 본문 */
+  --font-size-sm: 14.5px;   /* 보조텍스트(.small 등) */
+  --font-size-h1: 32px;     /* 상단 이름/큰 제목 */
+  --font-size-h6: 16px;     /* 카드 헤더 */
+  --leading: 1.6;
+}
+
+body{
+  font-family: var(--font-body);         /* Lato → 공통 폰트로 교체 */
+  font-size: var(--font-size-base);
+  line-height: var(--leading);
+}
+
+/* 3) 제목 계열(굵기 유지, 크기만 정리) */
+.h1,h1{ font-size: var(--font-size-h1); }
+.card-header h6, h6{ font-size: var(--font-size-h6); }
+
+/* 4) 보조텍스트(교육/경험에서 dept/position, .small 등) */
+.small, .card .small, .media .small{ 
+  font-size: var(--font-size-sm);
+  color:#5f6368;
+}
+
+/* 5) 리스트 간격 */
+ul{ margin-bottom:.5rem; }
+ul>li{ margin-bottom:.25rem; }
+
+/* 6) 링크 톤(원하면 색만 테마에 맞춰 유지) */
+a{ text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+/* 7) 날짜(우측 이탤릭) 가독성 */
+.no-break em{
+  font-style: italic;
+  color:#4a4f55;
+  white-space:nowrap;
+}
+
+/* 8) 제목 줄 세로깨짐 방지(보수용) */
+.media-body > .d-flex > div:first-child,
+.card .d-flex > div:first-child{
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
