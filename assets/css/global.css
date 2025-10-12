@@ -157,3 +157,24 @@
 .card ul.list.small > li > .d-flex + ul {
   margin-top: 12px;     /* <<< 이 값을 원하시는 간격으로 조절하세요 (예: 15px) */
 }
+
+
+/* Awards: 포스터/이미지 배너 크기 제한 */
+.award-banner{
+  display:block;
+  width:100%;           /* 반응형 */
+  max-width: 520px;     /* 최대 가로폭 (원하면 420~560px로 조절) */
+  height:auto;
+  border-radius:10px;
+  margin: 6px 0 12px;   /* 위/아래 여백 */
+}
+
+/* 큰 화면에선 조금 더 작게 보이게 하고 싶다면 (선택) */
+@media (min-width: 992px){
+  .award-banner{ max-width: 460px; }
+}
+
+/* 가운데 정렬 하고 싶으면 아래 주석 해제
+.award-banner{ margin: 6px auto 12px; }
+*/
+
