@@ -149,3 +149,12 @@ body{
 
 /* 아이콘/텍스트 정렬 미세 보정 */
 .no-break i{ vertical-align:-1px; }
+
+/* fix: Education/Experience 항목이 세로로 깨지는 문제 방지 */
+.media-body { flex: 1 1 auto; min-width: 0; }                /* 컨테이너가 가로로 펼쳐지도록 */
+li.media .media-body > div:first-child {
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;                                  /* 단어 단위로만 줄바꿈 */
+}
+
