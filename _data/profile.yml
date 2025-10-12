@@ -20,8 +20,8 @@ short_bio: >-
 
 
 portrait_url: /assets/images/profile.jpg
-portrait_caption: >-
-  Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
+# portrait_caption: >-
+#   Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
 
 education:
 - name: Yonsei University
@@ -32,16 +32,36 @@ education:
   date: Mar. 2024 - present
 
 
-# experience:
-# - name: Peking University
-#   logo: /assets/images/badges/PKU_red.png
-#   position: Research Intern
-#   date: Sep. 2019 - Jul. 2021
+experience:
+  - name: Student Council, PR Team Leader
+    position: >-
+      <ul class="mb-0">
+        <li>Led the PR team and managed student council events</li>
+        <li>Oversaw promotion and design for department events</li>
+      </ul>
+    date: Mar. 2025 – Present
+
+  - name: ABC Band Club
+    position: Performed as bassist in the departmental band club
+    date: Mar. 2025 – Present
+
+  - name: Individual Volunteering, 123 hours
+    position: Volunteered mainly for children at fairs, libraries, community centers, and educational centers
+    date: Mar. 2024 – Present
+
+  - name: Student Council, PR Team Member
+    position: >-
+      Assisted in organizing student council events as a staff member; 
+      created promotional designs as part of the PR team
+    date: Mar. 2024 – Dec. 2024
 
 awards:
-- name: Award Name 2
-  date: 2024
-- name: Award Name 1 
-  date: 2021
-- name: A quick brown fox jumps over the lazy dog and runs away award
-  date: 2021
+  - name: >-
+      2025 Creative Convergence Design Engineering Camp, 4th Place
+      <ul class="mb-0">
+        <li>Participated in a camp organized by the Engineering Education Innovation Centers of Yonsei, Ewha, and Hongik Universities</li>
+        <li>Developed “Nuri”, a personalized app under the theme of “Low-carbon product/service design for university student wellness”</li>
+      </ul>
+    date: Aug. 2025
+
+
