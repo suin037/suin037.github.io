@@ -13,6 +13,7 @@
   padding: var(--row-pad) 0;
 }
 .card ul.list-unstyled > li.media:last-child{ border-bottom: none; }
+
 /* Awards bullets가 .small이라 너무 작게 보이는 문제 보정 */
 .card .list.small,
 .card .list.small li {
@@ -20,34 +21,24 @@
   line-height: 1.6;
 }
 
-/* Awards(좌측 제목) 굵게 — 특이성 높이고 !important로 한 번만 강제 */
-.card ul.list.small > li > .d-flex > div:first-child {
-  font-weight: 600 !important;
-}
-
-/* Experience(좌측 제목)도 동일 톤(이미 적용됐다면 중복 無) */
-.card ul.list-unstyled > li.media .media-body > .d-flex > div:first-child {
+/* 좌측 제목(Experience / Awards) 굵게 */
+.card ul.list-unstyled > li.media .media-body > .d-flex > div:first-child,
+.card ul.list.small > li > .d-flex > div:first-child{
   font-weight: 600;
-}
-/* Awards: 제목(첫 줄)은 굵게 — 이미 적용된 규칙 유지 */
-.card ul.list.small > li > .d-flex > div:first-child {
-  font-weight: 600 !important;
 }
 
 /* Awards: 서브 항목(두 번째 줄 이하) 톤을 가볍게 */
-.card ul.list.small > li > ul {
+.card ul.list.small > li > ul{
   color: #5f6368;       /* 연한 회색 */
-  font-size: 0.95rem;   /* 살짝 작게(원래 크기로 두려면 이 줄 지워도 됨) */
+  font-size: 0.95rem;   /* 살짝 작게 (원하면 주석 처리) */
   line-height: 1.6;
 }
-.card ul.list.small > li > ul li {
-  font-weight: 400 !important;  /* 굵기 정상(가볍게) */
+.card ul.list.small > li > ul li{
+  font-weight: 400;
+  margin-bottom: .35rem;
 }
 
-
-
-
-/* 오른쪽 날짜 고정/정렬 */
+/* 오른쪽 날짜 고정/정렬 (News 스타일) */
 .card .d-flex .no-break{
   flex: 0 0 var(--date-width);
   max-width: var(--date-width);
@@ -61,10 +52,9 @@
 /* 본문이 날짜를 밀지 않도록 */
 .media-body{ flex: 1 1 auto; min-width: 0; }
 
-/* 내부 타이포 간격 */
+/* 행 내부 간격 */
 .card ul.list-unstyled > li.media .small,
 .card ul.list > li > .d-flex + ul { margin-top: 6px; }
-.card ul.list-unstyled > li.media .media-body > div:first-child { font-weight: 600; }
 
 /* 작은 화면에서 날짜 폭 축소 */
 @media (max-width: 768px){
@@ -73,7 +63,6 @@
 @media (max-width: 576px){
   :root { --date-width: 130px; }
 }
-
 
 /* --- Personal Life: 항상 가로 스크롤 --- */
 .pl-gallery{
@@ -88,7 +77,6 @@
   scrollbar-width: thin;
 }
 .pl-gallery:focus{ outline: none; }
-
 .pl-gallery > *{ flex: 0 0 auto !important; }
 
 .pl-item{
@@ -97,7 +85,7 @@
   min-width: 260px;
   max-width: 360px;
   scroll-snap-align: start;
-  border-radius: .5rem;           /* 살짝 둥글게(선택) */
+  border-radius: .5rem;
 }
 .pl-item img{
   display: block;
@@ -116,61 +104,25 @@
   .pl-item img{ height: 260px; }
 }
 
-/* Float image on the right inside award title block */
-.award-img-right{
-  float: right;
-  width: 140px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 4px 0 8px 14px;   /* 왼쪽 여백으로 본문과 간격 */
-}
-@media (max-width:576px){
-  .award-img-right{ display:none; }  /* 모바일에서는 숨김 */
-}
-
-/* === Awards: 제목 옆 사진 + 세부 항목은 얇고 작게 === */
-
-/* 1) 제목 블록 안에 넣는 사진(오른쪽 붙이기) */
-.card ul.list > li > .d-flex > div:first-child img.award-pic{
-  height: 28px;                 /* 원하는 높이로 조절 (24~32px 권장) */
-  margin-left: 10px;            /* 제목과 간격 */
-  vertical-align: middle;       /* 텍스트와 수직 정렬 */
-  border-radius: 4px;           /* 살짝 둥글게 */
-  object-fit: cover;
-}
-
-/* 2) 제목 블록 안의 '중첩 목록(세부 내용)'은 제목 스타일을 상쇄 */
-.card ul.list > li > .d-flex > div:first-child ul{
-  font-weight: 400;             /* 굵기 정상화 */
-  font-size: 0.97rem;           /* 본문보다 아주 살짝 작게 (원하면 1rem로) */
-  color: #495057;               /* 약간 연한 톤 */
-  margin-top: 8px;
-}
-.card ul.list > li > .d-flex > div:first-child ul li{
-  margin-bottom: .35rem;
-}
-/* Awards 제목(왼쪽 칼럼) 안에서 이미지(award-pic)를 오른쪽으로 고정 배치 */
+/* === Awards: 제목 옆 사진(썸네일)을 오른쪽에 고정 배치 === */
+/* 1) 제목 블록을 포지셔닝 기준으로 만들고 우측 여백 확보 */
 .card ul.list > li > .d-flex > div:first-child{
-  position: relative;          /* 자식 절대배치 기준 */
-  padding-right: 72px;         /* 👉 이미지만큼 공간 확보(텍스트 겹침 방지) */
+  position: relative;
+  padding-right: 72px;   /* 썸네일 공간 */
 }
-
-/* 제목 옆 썸네일: 더 크게 + 오른쪽으로 */
+/* 2) 썸네일 자체를 오른쪽/세로중앙에 고정 */
 .card ul.list > li > .d-flex > div:first-child img.award-pic{
   position: absolute;
-  right: 0;                    /* 날짜 칼럼 왼쪽 끝에 딱 붙게 */
+  right: 0;                      /* 날짜 칼럼 왼쪽에 붙임 */
   top: 50%;
-  transform: translateY(-50%); /* 세로 중앙 정렬 */
-  height: 42px;                /* ← 크기 키움(원하면 36~48px 사이로 조절) */
+  transform: translateY(-50%);   /* 세로 중앙 */
+  height: 42px;                  /* 필요시 36~48px 사이로 조절 */
   width: auto;
   border-radius: 6px;
   object-fit: cover;
 }
-
-/* 모바일에서는 조금만 줄이기 */
+/* 3) 모바일에서는 조금 줄이기 */
 @media (max-width: 576px){
   .card ul.list > li > .d-flex > div:first-child{ padding-right: 56px; }
   .card ul.list > li > .d-flex > div:first-child img.award-pic{ height: 34px; }
 }
-
