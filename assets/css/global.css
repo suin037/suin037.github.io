@@ -14,29 +14,8 @@
 }
 .card ul.list-unstyled > li.media:last-child{ border-bottom: none; }
 
-/* Awards bullets가 .small이라 너무 작게 보이는 문제 보정 */
-.card .list.small,
-.card .list.small li {
-  font-size: 1rem;
-  line-height: 1.6;
-}
 
-/* 좌측 제목(Experience / Awards) 굵게 */
-.card ul.list-unstyled > li.media .media-body > .d-flex > div:first-child,
-.card ul.list.small > li > .d-flex > div:first-child{
-  font-weight: 600;
-}
 
-/* Awards: 서브 항목(두 번째 줄 이하) 톤을 가볍게 */
-.card ul.list.small > li > ul{
-  color: #5f6368;       /* 연한 회색 */
-  font-size: 0.95rem;   /* 살짝 작게 (원하면 주석 처리) */
-  line-height: 1.6;
-}
-.card ul.list.small > li > ul li{
-  font-weight: 400;
-  margin-bottom: .35rem;
-}
 
 /* 오른쪽 날짜 고정/정렬 (News 스타일) */
 .card .d-flex .no-break{
@@ -104,39 +83,35 @@
   .pl-item img{ height: 260px; }
 }
 
-/* === Awards: 제목 옆 사진(썸네일)을 오른쪽에 고정 배치 === */
-/* 1) 제목 블록을 포지셔닝 기준으로 만들고 우측 여백 확보 */
+/* ===== Awards 썸네일: 텍스트 침범 방지 + 고정 크기 ===== */
+:root{
+  --award-pic: 56px;     /* 썸네일 가로(=세로 비율 유지). 48~64px에서 취향대로 */
+  --award-gap: 12px;     /* 썸네일과 텍스트 사이 여백 */
+}
+
+/* 제목 칸에 썸네일 자리(패딩) 미리 확보 + 행 높이 확보 */
 .card ul.list > li > .d-flex > div:first-child{
   position: relative;
-  padding-right: 72px;   /* 썸네일 공간 */
+  padding-right: calc(var(--award-pic) + var(--award-gap));
+  min-height: var(--award-pic);              /* 행 높이가 썸네일보다 작아지지 않도록 */
 }
-/* 2) 썸네일 자체를 오른쪽/세로중앙에 고정 */
+
+/* 썸네일: 제목 칸의 오른쪽에, 세로 중앙 고정 (날짜 칼럼은 별개라 겹치지 않음) */
 .card ul.list > li > .d-flex > div:first-child img.award-pic{
   position: absolute;
-  right: 0;                      /* 날짜 칼럼 왼쪽에 붙임 */
   top: 50%;
-  transform: translateY(-50%);   /* 세로 중앙 */
-  height: 42px;                  /* 필요시 36~48px 사이로 조절 */
-  width: auto;
-  border-radius: 6px;
+  right: var(--award-gap);
+  transform: translateY(-50%);
+  width: var(--award-pic);
+  height: auto;                               /* 비율 유지 */
+  max-height: 64px;                           /* 안전 상한 */
   object-fit: cover;
+  border-radius: 6px;
 }
-/* 3) 모바일에서는 조금 줄이기 */
+
+/* 모바일에서는 조금 더 작게 */
 @media (max-width: 576px){
-  .card ul.list > li > .d-flex > div:first-child{ padding-right: 56px; }
-  .card ul.list > li > .d-flex > div:first-child img.award-pic{ height: 34px; }
+  :root{ --award-pic: 44px; }
 }
 
-/* Awards: 설명 bullet은 항상 보통 굵기(볼드 해제) */
-.card ul.list.small > li > .d-flex > div:first-child ul,
-.card ul.list.small > li > .d-flex > div:first-child ul li{
-  font-weight: 400 !important;  /* 부모의 600 상속을 덮어씀 */
-  color: #5f6368;               /* 원하던 연한 톤 유지 */
-}
-
-:root { --nav-h: 84px; }                      /* 기본(데스크톱) navbar 높이 */
-@media (max-width: 992px){ :root { --nav-h: 72px; } }  /* 태블릿/모바일 */
-
-.navbar { min-height: var(--nav-h); }
-body { padding-top: calc(var(--nav-h) + 16px); }       /* 본문 시작 여백 */
 
