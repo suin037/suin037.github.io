@@ -107,3 +107,16 @@
   font-weight: var(--item-title-weight) !important;
   line-height: 1.25;
 }
+
+/* Awards/Experience 줄 정렬을 같은 기준으로 */
+.card .d-flex.award-row { align-items: baseline; }
+
+/* 제목(좌측) 굵기/크기: Experience와 동일 톤 */
+.item-title { font-weight: 600; font-size: 1.1rem; }
+
+/* 날짜는 한 줄 고정 */
+.no-break { white-space: nowrap; }
+
+/* 필요시 날짜 칼럼 폭 미세 조정 */
+:root { --date-width: 180px; }   /* 160~200px 범위에서 조절 */
+
