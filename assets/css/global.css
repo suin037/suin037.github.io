@@ -1,25 +1,46 @@
-/* ==== News와 같은 라인 스타일 + 오른쪽 날짜 고정 ==== */
+/* =========================================
+   0) Root variables (공통 변수)
+   ========================================= */
 :root{
   /* 공통 */
-  --row-border: #e9ecef;   /* 연한 구분선 */
-  --row-pad: 18px;         /* 행 여백 */
+  --row-border: #e9ecef;   /* 라인 구분선 색 */
+  --row-pad: 18px;         /* 행 상하 여백 */
   --date-width: 180px;     /* 오른쪽 날짜 고정 폭 */
 
   /* Awards 썸네일 */
-  --award-pic: 56px;       /* 썸네일 가로(비율유지). 48~64px 추천 */
-  --award-gap: 12px;       /* 썸네일과 텍스트 사이 여백 */
+  --award-pic: 56px;       /* 썸네일 가로(비율 유지, 48~64px 추천) */
+  --award-gap: 12px;       /* 썸네일과 텍스트 사이 간격 */
 }
 
-/* Education / Experience: 한 줄(row) + 구분선 */
+/* =========================================
+   1) “뉴스 스타일” 라인(구분선) + 한 줄 레이아웃
+   (Education / Experience 공통)
+   ========================================= */
 .card ul.list-unstyled > li.media{
   display: flex;
   align-items: flex-start;
   border-bottom: 1px solid var(--row-border);
   padding: var(--row-pad) 0;
 }
-.card ul.list-unstyled > li.media:last-child{ border-bottom: none; }
+.card ul.list-unstyled > li.media:last-child{
+  border-bottom: none;
+}
 
-/* 오른쪽 날짜(News처럼) */
+/* 본문 영역이 날짜 칼럼을 밀지 않도록(안전장치) */
+.media-body{
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* 제목줄 다음에 오는 bullet과의 간격 */
+.card ul.list-unstyled > li.media .small,
+.card ul.list > li > .d-flex + ul{
+  margin-top: 6px;
+}
+
+/* =========================================
+   2) 오른쪽 날짜 칼럼 (News 느낌)
+   ========================================= */
 .card .d-flex .no-break{
   flex: 0 0 var(--date-width);
   max-width: var(--date-width);
@@ -30,18 +51,17 @@
   white-space: nowrap;
 }
 
-/* 본문이 날짜를 밀지 않도록(한 줄 레이아웃 안전장치) */
-.media-body{ flex: 1 1 auto; min-width: 0; }
+/* 반응형: 화면 좁을 때 날짜 폭 줄이기 */
+@media (max-width: 768px){
+  :root{ --date-width: 150px; }
+}
+@media (max-width: 576px){
+  :root{ --date-width: 130px; }
+}
 
-/* 행 내부 간격(제목줄 다음 bullet이 조금 띄워지도록) */
-.card ul.list-unstyled > li.media .small,
-.card ul.list > li > .d-flex + ul { margin-top: 6px; }
-
-/* 화면 좁을 때 날짜 폭 축소 */
-@media (max-width: 768px){ :root { --date-width: 150px; } }
-@media (max-width: 576px){ :root { --date-width: 130px; } }
-
-/* --- Personal Life: 가로 스크롤 갤러리 --- */
+/* =========================================
+   3) Personal Life: 가로 스크롤 갤러리
+   ========================================= */
 .pl-gallery{
   display: flex;
   flex-wrap: nowrap !important;   /* 줄바꿈 금지 */
@@ -70,22 +90,28 @@
   height: 360px;
   object-fit: cover;
 }
-.pl-cap{ padding: 6px 10px 10px; color: #5f6368; }
+.pl-cap{
+  padding: 6px 10px 10px;
+  color: #5f6368;
+}
 
-@media (max-width:576px){
+/* 모바일에서 카드 조금 크게 */
+@media (max-width: 576px){
   .pl-item{ min-width: 75%; }
   .pl-item img{ height: 260px; }
 }
 
-/* ===== Awards 썸네일: 텍스트 침범 방지 + 고정 크기 ===== */
+/* =========================================
+   4) Awards: 제목 옆 썸네일 (텍스트 침범 방지)
+   ========================================= */
 /* 제목 칸을 포지셔닝 기준으로 만들고, 썸네일 자리만큼 오른쪽 패딩 확보 */
 .card ul.list > li > .d-flex > div:first-child{
   position: relative;
   padding-right: calc(var(--award-pic) + var(--award-gap));
-  min-height: var(--award-pic); /* 행 높이가 썸네일보다 작아지지 않게 */
+  min-height: var(--award-pic);  /* 행 높이가 썸네일보다 작아지지 않게 */
 }
 
-/* 썸네일: 제목 칸의 오른쪽, 세로 중앙 고정 (날짜 칼럼과는 별도 영역) */
+/* 썸네일을 제목 칸의 오른쪽/세로 중앙에 고정 (날짜 칼럼과 영역 분리) */
 .card ul.list > li > .d-flex > div:first-child img.award-pic{
   position: absolute;
   top: 50%;
@@ -93,19 +119,12 @@
   transform: translateY(-50%);
   width: var(--award-pic);
   height: auto;                 /* 비율 유지 */
-  max-height: 64px;
+  max-height: 64px;             /* 안전 상한 */
   object-fit: cover;
   border-radius: 6px;
 }
 
-/* 모바일에서는 썸네일 조금 줄이기 */
+/* 모바일에서 썸네일 크기 조정 */
 @media (max-width: 576px){
   :root{ --award-pic: 44px; }
 }
-awards:
-  - name: >-
-      2025 Creative Convergence Design Engineering Camp, 4th Place
-      <img class="award-pic" src="/assets/images/awards/camp.jpg" alt="Camp photo">
-    date: Aug. 2025
-    # 아래 bullet들은 그대로 (굵게 되지 않고 본문 톤 유지)
-    # - ...
