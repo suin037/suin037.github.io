@@ -19,13 +19,14 @@ short_bio: >-
   <p>As this area rapidly evolves, I aim to study widely and pursue research that integrates Artificial Intelligence with other disciplines. I plan to study abroad—such as through an exchange program—to further broaden my experience.</p>
 
 
-portrait_url: /assets/images/photos/portrait.jpg
+portrait_url: /assets/images/profile.jpg
 portrait_caption: >-
   Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
 
 education:
 - name: Yonsei University
-  logo: /assets/images/badges/MIT_Social_circle.png
+  logo: /assets/images/yonsei logo.png
+
   position: >- 
     B.S. in Artificial Intelligence
   date: Mar. 2024 - present
