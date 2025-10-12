@@ -168,4 +168,34 @@
   border-radius:10px;
   margin: 6px 0 12px;   /* 위/아래 여백 */
 }
+/* ===== Awards 배너 이미지: 카드 폭을 밀어내지 않도록 고정 ===== */
+
+/* 페이지 전체 가로 넘침 방지(안전장치) */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* 배너 이미지: 왼쪽에 띄우고(플로트), 고정 최대폭만 허용 */
+.card ul.list > li .award-banner{
+  float: left;
+  display: block;
+  max-width: 360px;          /* ← 원하면 300~420px 사이로 조절 */
+  width: auto !important;    /* 100%로 늘어나지 않게 */
+  height: auto !important;   /* 비율 유지 */
+  margin: 4px 16px 10px 0;   /* 텍스트와 간격 */
+  border-radius: 10px;
+}
+
+/* 배너 옆 텍스트가 배너 아래로 흘러내리지 않도록 부모가 플로트를 컨테인 */
+.card ul.list > li { overflow: hidden; }
+
+/* Awards 제목과 배너/내용 간 간격 조금 띄우기 */
+.card ul.list > li > .d-flex + ul { margin-top: 10px; }
+
+/* 반응형: 좁아지면 플로트 해제하고 위에 배치 */
+@media (max-width: 768px){
+  .card ul.list > li .award-banner{
+    float: none;
+    max-width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
 
