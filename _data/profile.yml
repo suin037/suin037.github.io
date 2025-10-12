@@ -44,7 +44,7 @@ awards:
 
 
 experience:
-  - name: <strong>Student Council, PR Team Leader</strong>
+  - name: Student Council, PR Team Leader
     position: >-
       <ul class="mb-0">
         <li>Led the PR team and managed student council events</li>
@@ -52,19 +52,28 @@ experience:
       </ul>
     date: Mar. 2025 – Present
 
-  - name: <strong>ABC Band Club</strong>
-    position: Performed as bassist in the departmental band club
-    date: Mar. 2024 – Present
-
-  - name: <strong>Individual Volunteering, 123 hours</strong>
-    position: Volunteered mainly for children at fairs, libraries, community centers, and educational centers
-    date: Mar. 2024 – Present
-
-  - name: <strong>Student Council, PR Team Member</strong>
+  - name: ABC Band Club
     position: >-
-      Assisted in organizing student council events as a staff member; 
-      created promotional designs as part of the PR team
+      <ul class="mb-0">
+        <li>Performed as bassist in the departmental band club</li>
+      </ul>
+    date: Mar. 2024 – Present
+
+  - name: Individual Volunteering, 123 hours
+    position: >-
+      <ul class="mb-0">
+        <li>Volunteered mainly for children at fairs, libraries, community centers, and educational centers</li>
+      </ul>
+    date: Mar. 2024 – Present
+
+  - name: Student Council, PR Team Member
+    position: >-
+      <ul class="mb-0">
+        <li>Assisted in organizing student council events as a staff member</li>
+        <li>Created promotional designs as part of the PR team</li>
+      </ul>
     date: Mar. 2024 – Dec. 2024
+
 
 skills:
   - category: Programming Languages
