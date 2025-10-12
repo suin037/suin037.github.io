@@ -2,10 +2,7 @@ primary_name: "SUIN CHOI"
 secondary_name: ""
 navbar_name: "SUIN CHOI"
 
-positions:
-- logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
-#  name: Position 1 with logo
-#- name: Position 2 without logo
+positions: []
 
 
 email: suinnn@yonsei.ac.kr
@@ -25,7 +22,7 @@ portrait_url: /assets/images/profile.jpg
 
 education:
 - name: Yonsei University
-  logo: /assets/images/yonsei logo.png
+  logo: /assets/images/yonsei_logo.png
 
   position: >- 
     B.S. in Artificial Intelligence
@@ -43,7 +40,7 @@ experience:
 
   - name: ABC Band Club
     position: Performed as bassist in the departmental band club
-    date: Mar. 2025 – Present
+    date: Mar. 2024 – Present
 
   - name: Individual Volunteering, 123 hours
     position: Volunteered mainly for children at fairs, libraries, community centers, and educational centers
