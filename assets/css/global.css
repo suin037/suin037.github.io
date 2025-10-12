@@ -13,19 +13,23 @@
   padding: var(--row-pad) 0;
 }
 .card ul.list-unstyled > li.media:last-child{ border-bottom: none; }
-
-/* Awards: 제목줄(제목+날짜)도 같은 라인 스타일 */
-/* — Fix: Awards bullets use `small` class → make same size as body — */
+/* Awards bullets가 .small이라 너무 작게 보이는 문제 보정 */
 .card .list.small,
 .card .list.small li {
-  font-size: 1rem;          /* = 16px (본문과 동일) */
-  line-height: 1.6;         /* 가독성 맞춤 */
+  font-size: 1rem;
+  line-height: 1.6;
 }
-/* Experience(좌측 제목) + Awards(좌측 제목) 모두 굵게 */
-.card ul.list-unstyled > li.media .media-body > .d-flex > div:first-child,
-.card ul.list > li > .d-flex > div:first-child{
+
+/* Awards(좌측 제목) 굵게 — 특이성 높이고 !important로 한 번만 강제 */
+.card ul.list.small > li > .d-flex > div:first-child {
+  font-weight: 600 !important;
+}
+
+/* Experience(좌측 제목)도 동일 톤(이미 적용됐다면 중복 無) */
+.card ul.list-unstyled > li.media .media-body > .d-flex > div:first-child {
   font-weight: 600;
 }
+
 
 
 
