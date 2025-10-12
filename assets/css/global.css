@@ -150,4 +150,27 @@
 .card ul.list > li > .d-flex > div:first-child ul li{
   margin-bottom: .35rem;
 }
+/* Awards 제목(왼쪽 칼럼) 안에서 이미지(award-pic)를 오른쪽으로 고정 배치 */
+.card ul.list > li > .d-flex > div:first-child{
+  position: relative;          /* 자식 절대배치 기준 */
+  padding-right: 72px;         /* 👉 이미지만큼 공간 확보(텍스트 겹침 방지) */
+}
+
+/* 제목 옆 썸네일: 더 크게 + 오른쪽으로 */
+.card ul.list > li > .d-flex > div:first-child img.award-pic{
+  position: absolute;
+  right: 0;                    /* 날짜 칼럼 왼쪽 끝에 딱 붙게 */
+  top: 50%;
+  transform: translateY(-50%); /* 세로 중앙 정렬 */
+  height: 42px;                /* ← 크기 키움(원하면 36~48px 사이로 조절) */
+  width: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* 모바일에서는 조금만 줄이기 */
+@media (max-width: 576px){
+  .card ul.list > li > .d-flex > div:first-child{ padding-right: 56px; }
+  .card ul.list > li > .d-flex > div:first-child img.award-pic{ height: 34px; }
+}
 
