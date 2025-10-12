@@ -32,6 +32,110 @@ h1, h2, h3, h4, h5, h6,
     border-top-right-radius: 0.8rem !important;
 }
 
+/* ====== Professional Typography & UI Refresh ====== */
+/* Google Fonts 불러오기 (CSS에서 바로 import) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+:root{
+  /* 기본 타이포 스케일 */
+  --font-size-base: 17px;
+  --line-height-base: 1.65;
+  --heading-line-height: 1.25;
+
+  /* 색 조정 */
+  --text-strong: #1f2937;      /* 거의 검정 */
+  --text-muted: #6b7280;       /* 회색 */
+  --link: #2563eb;             /* 파란색 */
+  --link-hover: #1d4ed8;
+
+  /* 카드/모서리/섀도우 */
+  --radius-xl: 14px;
+  --shadow: 0 6px 24px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+}
+
+html { scroll-behavior: smooth; }
+
+body{
+  font-family: "Inter","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif !important;
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 제목은 Merriweather + 한국어 폴백은 Noto Sans KR */
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6{
+  font-family: "Merriweather","Noto Sans KR",serif !important;
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  letter-spacing: .2px;
+  color: var(--text-strong);
+  margin-top: .4em;
+  margin-bottom: .35em;
+}
+
+/* 크기 스케일 (반응형) */
+h1,.h1{ font-size: clamp(2rem, 3.2vw, 2.6rem); }
+h2,.h2{ font-size: clamp(1.6rem, 2.4vw, 2.0rem); }
+h3,.h3{ font-size: clamp(1.3rem, 1.8vw, 1.6rem); }
+h4,.h4{ font-size: 1.25rem; }
+h5,.h5{ font-size: 1.1rem; }
+h6,.h6{ font-size: 1rem; }
+
+/* 본문-보조 텍스트 */
+.small, .text-muted{ color: var(--text-muted) !important; }
+
+/* 링크 톤 다운 */
+a{ color: var(--link); text-decoration: none; }
+a:hover{ color: var(--link-hover); text-decoration: underline; }
+
+/* 메일/깃허브/버튼 아이콘 정렬 */
+.no-break i, .nav i, .btn i{ vertical-align: -1px; }
+
+/* 카드 스타일 통일 */
+.card{
+  border-radius: var(--radius-xl) !important;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,.04);
+}
+.card .card-body{ padding: 1.25rem 1.35rem; }
+.card h6{ font-weight: 700; color: var(--text-strong); }
+
+/* 리스트 가독성 */
+ul{ margin-bottom: .8rem; }
+li{ margin: .15rem 0; }
+
+/* 프로필 블록(상단) 여백/이미지 다듬기 */
+.text-profile-bio{ font-weight: 400; }
+.figure img,
+img.rounded-circle{
+  image-rendering: auto;
+}
+.inline-badge{
+  height: 16px; vertical-align: -10%; margin-right: 4px; line-break: unset;
+}
+
+/* media object 레이아웃 깨짐 방지 */
+.media-body{ flex: 1 1 auto; min-width: 0; }
+li.media .media-body > div:first-child{
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* 구분선 톤 다운 */
+hr{ border-top: 1px solid rgba(0,0,0,.08); }
+
+/* 표, 코드 블록(있다면) */
+code,kbd,pre,samp{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .95em;
+}
+
+
 
 .text-profile-position {
     font-weight: 400;
