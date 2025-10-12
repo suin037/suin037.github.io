@@ -178,3 +178,39 @@ div.lazy {
     max-width: 140px;
   }
 }
+
+
+
+/* === polish: News 톤과 완전 동일하게 + 레이아웃 안전장치 === */
+:root{
+  --row-border: #e9ecef;  /* News와 비슷한 연한 선색 */
+  --row-pad: 18px;        /* 행 위/아래 여백 */
+  --date-width: 180px;    /* 오른쪽 날짜 고정폭 (160~200px로 조절 가능) */
+}
+
+/* Education / Experience 한 줄 스타일 + 구분선/간격 */
+.card ul.list-unstyled > li.media{
+  border-bottom: 1px solid var(--row-border);
+  padding: var(--row-pad) 0;
+}
+.card ul.list-unstyled > li.media:last-child{ border-bottom: none; }
+
+/* Awards 제목줄(제목+날짜)도 같은 라인 스타일 */
+.card ul.list > li > .d-flex{
+  border-bottom: 1px solid var(--row-border);
+  padding: var(--row-pad) 0;
+}
+.card ul.list > li:last-child > .d-flex{ border-bottom: none; }
+
+/* 오른쪽 날짜 칼럼 고정/정렬 (News 느낌) */
+.card .d-flex .no-break{
+  flex: 0 0 var(--date-width);
+  max-width: var(--date-width);
+  margin-left: auto;
+  text-align: right;
+  color: #4a4f55;
+  font-style: italic;
+}
+
+/* 긴 텍스트가 날짜 칼럼을 밀지 않도록 안전장치 */
+.media-body{ flex: 1 1 auto; min-width: 0; }
