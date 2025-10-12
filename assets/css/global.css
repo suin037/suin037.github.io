@@ -1,0 +1,151 @@
+@charset "utf-8";
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    padding-top: 5.0rem;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 700;
+}
+
+.card {
+    border-radius: 0.8rem!important;
+}
+
+.card-img-overlay {
+    border-radius: 0.8rem!important;
+}
+
+.rounded-xl {
+    border-radius: 0.8rem!important;
+}
+
+.rounded-xl-bottom {
+    border-bottom-right-radius: 0.8rem !important;
+    border-bottom-left-radius: 0.8rem !important;
+}
+
+.rounded-xl-top {
+    border-top-left-radius: 0.8rem !important;
+    border-top-right-radius: 0.8rem !important;
+}
+
+
+.text-profile-position {
+    font-weight: 400;
+}
+
+.text-profile-bio {
+    /* font-family: "Raleway"; */
+    font-weight: 400;
+}
+
+.navbar {
+    opacity: 0.95;
+}
+
+.inline-badge {
+    height: 16px;
+    vertical-align: -10%;
+    margin-right: 2px;
+    line-break: unset;
+}
+
+.no-break {
+    white-space: nowrap;
+}
+
+.cover-image {
+    width: 180px;
+    max-height: 120px;
+}
+
+.abstract-body {
+    min-height: 100px;
+}
+
+img.lazy {
+    background-image: url('images/loading.gif');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 50px 50px;
+    min-height: 80px;
+}
+
+div.lazy {
+    background-image: url('images/loading.gif');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 50px 50px;
+    min-height: 80px;
+}
+
+.badge-publication {
+    font-size: 100%;
+}
+
+.email-text {
+    font-family: Courier, monospace;
+}
+
+/* ====== SUIN site: unified typography & spacing (append at end) ====== */
+
+/* 1) 웹폰트(영문 Inter + 한글 Noto Sans KR) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* 2) 공통 변수 */
+:root{
+  --font-body: 'Inter','Noto Sans KR',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';
+  --font-size-base: 16px;     /* 본문 */
+  --font-size-sm:   14.5px;   /* 보조 텍스트(.small 등) */
+  --font-size-name: 34px;     /* 상단 이름 h1 대체 */
+  --font-size-h6:   17px;     /* 카드 제목 */
+  --leading:        1.6;
+}
+
+/* 3) 본문/헤더 기본 톤 */
+body{
+  font-family: var(--font-body);   /* 기존 Lato → 통일 */
+  font-size: var(--font-size-base);
+  line-height: var(--leading);
+}
+
+/* 상단 이름(프로필 카드 .h1 클래스) */
+.h1{ font-size: var(--font-size-name); font-weight:700; letter-spacing:.2px; }
+
+/* 카드 헤더(섹션 제목) */
+.card-header{ background:#fff; border-bottom:1px solid #eee; }
+.card-header h6, h6{ font-size: var(--font-size-h6); font-weight:700; margin:0; }
+
+/* 4) 섹션 항목 타이틀(좌측 이름), 보조텍스트, 리스트 간격 */
+.card .media-body > .d-flex > div:first-child,
+.card .d-flex > div:first-child{
+  font-size: 16px;         /* Education/Experience/Awards의 항목 이름 */
+  font-weight: 600;
+  word-break: normal;      /* 한 글자씩 세로깨짐 방지 */
+  overflow-wrap: break-word;
+}
+
+.small, .card .small, .media .small{
+  font-size: var(--font-size-sm);
+  color:#5f6368;
+}
+
+/* Awards의 본문이 .list.small 로 작아지는 것 보정 */
+.card .list.small{ font-size: var(--font-size-base); color: inherit; }
+
+/* 리스트 간격 정리 */
+.card ul{ margin-bottom:.5rem; padding-left:1.25rem; }
+.card ul > li{ margin-bottom:.35rem; }
+.card ul ul{ padding-left:1rem; }
+
+/* 날짜(우측 이탤릭) 톤 통일 */
+.no-break em{ font-style: italic; color:#4a4f55; white-space:nowrap; }
+
+/* 카드 내부 패딩 통일 (너무 벌어지면 값 줄이기) */
+.card .card-body{ padding: 1.25rem 1.5rem; }
+
+/* 아이콘/텍스트 정렬 미세 보정 */
+.no-break i{ vertical-align:-1px; }
