@@ -101,4 +101,9 @@
   .pl-item img{ height: 260px; }
 }
 
-
+/* Awards: 왼쪽 제목(예: 2025 Creative Convergence … 4th Place) */
+.card ul.list.small > li > .d-flex > div:first-child{
+  font-size: var(--item-title-size) !important;
+  font-weight: var(--item-title-weight) !important;
+  line-height: 1.25;
+}
