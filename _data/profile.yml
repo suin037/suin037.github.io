@@ -31,21 +31,15 @@ interests: >-
   <p>My research interests focus on building <strong>AI systems capable of commonsense reasoning in human social contexts</strong>. I aim to create <strong>human-centric AI agents</strong> that understand individuals’ circumstances and intentions and provide proactive support through rule-based commonsense inference.</p>
 
 
-# awards:
-#   - name: >-
-#       <strong>2025 Creative Convergence Design Engineering Camp, 4th Place</strong>
-#       <ul class="mb-0">
-#         <li>Participated in a camp organized by the Engineering Education Innovation Centers of Yonsei, Ewha, and Hongik Universities</li>
-#         <li>Developed “Nuri”, a personalized app under the theme of “Low-carbon product/service design for university student wellness”</li>
-#       </ul>
-#     date: Aug. 2025
-
 awards:
-  - name: 2025 Creative Convergence Design Engineering Camp, 4th Place
+  - name: >-
+      <strong>2025 Creative Convergence Design Engineering Camp, 4th Place</strong>
+      <ul class="mb-0">
+        <li>Participated in a camp organized by the Engineering Education Innovation Centers of Yonsei, Ewha, and Hongik Universities</li>
+        <li>Developed “Nuri”, a personalized app under the theme of “Low-carbon product/service design for university student wellness”</li>
+      </ul>
     date: Aug. 2025
-    details:
-      - Participated in a camp organized by the Engineering Education Innovation Centers of Yonsei, Ewha, and Hongik Universities
-      - Developed “Nuri”, a personalized app under the theme of “Low-carbon product/service design for university student wellness”
+
 
 
 
