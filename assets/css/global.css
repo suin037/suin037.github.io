@@ -126,3 +126,11 @@
   .card ul.list > li > .d-flex > div:first-child{ padding-right: 56px; }
   .card ul.list > li > .d-flex > div:first-child img.award-pic{ height: 34px; }
 }
+
+/* Awards: 설명 bullet은 항상 보통 굵기(볼드 해제) */
+.card ul.list.small > li > .d-flex > div:first-child ul,
+.card ul.list.small > li > .d-flex > div:first-child ul li{
+  font-weight: 400 !important;  /* 부모의 600 상속을 덮어씀 */
+  color: #5f6368;               /* 원하던 연한 톤 유지 */
+}
+
