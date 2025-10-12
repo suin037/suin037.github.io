@@ -214,3 +214,29 @@ div.lazy {
 
 /* 긴 텍스트가 날짜 칼럼을 밀지 않도록 안전장치 */
 .media-body{ flex: 1 1 auto; min-width: 0; }
+
+/* --- Fix: Personal Life horizontal gallery always scrolls horizontally --- */
+.pl-gallery{
+  display: flex;
+  flex-wrap: nowrap !important;   /* 절대 줄바꿈 금지 */
+  overflow-x: auto !important;    /* 가로 스크롤 */
+  overflow-y: hidden;             /* 세로 스크롤 방지 */
+  gap: 16px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.pl-gallery > *{
+  flex: 0 0 auto !important;      /* 아이템이 줄바꿈 되지 않도록 고정 */
+}
+
+.pl-item{
+  min-width: 260px;
+  max-width: 360px;
+}
+
+@media (max-width:576px){
+  .pl-item{ min-width: 75%; }
+  .pl-item img{ height: 260px; }
+}
+
