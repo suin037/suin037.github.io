@@ -8,7 +8,7 @@ positions:
 #- name: Position 2 without logo
 
 
-email: <span class="email-text">{{ site.data.profile.email }}</span>
+email: suinnn@yonsei.ac.kr
 github: suin037
 cv_link: /assets/SUIN_CHOI_2024149037.pdf
 
