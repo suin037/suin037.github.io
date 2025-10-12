@@ -30,6 +30,22 @@
 </div>
 {% endif %}
 
+{% if site.data.profile.interests %}
+<div class="row mt-3">
+  <div class="col-12">
+    <div class="card border-0 shadow-sm bg-white">
+      <div class="card-header bg-white border-0">
+        <h6 class="mb-0"><i class="fas fa-lightbulb mr-2"></i>Research Interests</h6>
+      </div>
+      <div class="card-body pt-2 pb-4 px-4">
+        {{ site.data.profile.interests }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
 <!-- ===== Honors & Awards (독립 카드) ===== -->
 {% if site.data.profile.awards %}
 <div class="row mt-3">
