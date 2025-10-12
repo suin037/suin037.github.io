@@ -32,6 +32,13 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+
+
+homepage:
+  show_news: false
+  show_selected_publications: false
+
+
 # timezone: Asia/Shanghai
 
 collections:
