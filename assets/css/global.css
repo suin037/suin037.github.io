@@ -115,3 +115,17 @@
   .pl-item{ min-width: 75%; }
   .pl-item img{ height: 260px; }
 }
+
+/* Float image on the right inside award title block */
+.award-img-right{
+  float: right;
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 4px 0 8px 14px;   /* 왼쪽 여백으로 본문과 간격 */
+}
+@media (max-width:576px){
+  .award-img-right{ display:none; }  /* 모바일에서는 숨김 */
+}
+
