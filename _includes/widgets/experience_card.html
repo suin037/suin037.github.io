@@ -46,7 +46,6 @@
 {% endif %}
 
 
-<!-- ===== Honors & Awards (독립 카드) ===== -->
 {% if site.data.profile.awards %}
 <div class="col-md-6">
   <div class="mx-2 my-1">
@@ -54,38 +53,30 @@
     <ul class="list-unstyled mb-1">
       {% for item in site.data.profile.awards %}
       <li class="media mb-1">
-        {%- if item.logo -%}
+        {% if item.logo %}
           <img src="{{ item.logo | relative_url }}" alt="{{ item.title | default: item.name }}" style="width:18px;" class="mr-1 mt-1">
-        {%- endif -%}
+        {% endif %}
         <div class="media-body">
+          {%- assign raw = item.title | default: item.name -%}
+          {%- assign parts = raw | split: '<ul' -%}
           <div class="d-flex">
-            <div>
-              {%- comment -%}
-              제목(굵게) — YAML에 title이 있으면 title, 없으면 name
-              {%- endcomment -%}
-              <strong>{{ item.title | default: item.name }}</strong>
-            </div>
+            <div><strong>{{ parts[0] | strip }}</strong></div>
             <div class="ml-auto mt-auto no-break"><em>{{ item.date }}</em></div>
           </div>
 
           {%- comment -%}
-          상세 설명: 
-          1) item.details 배열이 있으면 bullet로 출력
-          2) 아니면 item.position(혹은 item.desc) / 
-             (지금처럼 name 안에 <ul>을 넣어두었다면 그대로 표시)
+          1) YAML에 details 배열이 있으면 bullet로 출력
+          2) 아니면 name 내부의 <ul ...>부터를 상세로 출력
           {%- endcomment -%}
-          {%- if item.details -%}
+          {% if item.details %}
             <ul class="small mb-0 mt-1 pl-4">
-              {%- for d in item.details -%}
+              {% for d in item.details %}
               <li>{{ d }}</li>
-              {%- endfor -%}
+              {% endfor %}
             </ul>
-          {%- elsif item.position -%}
-            <div class="small mt-1">{{ item.position }}</div>
-          {%- else -%}
-            {# 현재 데이터처럼 name 내부에 <ul>이 들어있는 경우를 위해 표시 #}
-            <div class="small mt-1">{{ item.name | markdownify }}</div>
-          {%- endif -%}
+          {% elsif parts.size > 1 %}
+            {{ '<ul' | append: parts[1] }}
+          {% endif %}
         </div>
       </li>
       {% endfor %}
@@ -93,6 +84,7 @@
   </div>
 </div>
 {% endif %}
+
 
 
 <!-- ===== Experience (독립 카드) ===== -->
