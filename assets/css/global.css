@@ -21,10 +21,12 @@
   font-size: 1rem;          /* = 16px (본문과 동일) */
   line-height: 1.6;         /* 가독성 맞춤 */
 }
-/* Awards: 제목(왼쪽 텍스트)을 굵게 */
+/* Experience(좌측 제목) + Awards(좌측 제목) 모두 굵게 */
+.card ul.list-unstyled > li.media .media-body > .d-flex > div:first-child,
 .card ul.list > li > .d-flex > div:first-child{
   font-weight: 600;
 }
+
 
 
 /* 오른쪽 날짜 고정/정렬 */
