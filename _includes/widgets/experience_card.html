@@ -51,31 +51,23 @@
   <div class="mx-2 my-1">
     <h6>Awards</h6>
     <ul class="list-unstyled mb-1">
-      {% for item in site.data.profile.awards %}
+      {% for a in site.data.profile.awards %}
       <li class="media mb-1">
-        {% if item.logo %}
-          <img src="{{ item.logo | relative_url }}" alt="{{ item.title | default: item.name }}" style="width:18px;" class="mr-1 mt-1">
+        {% if a.logo %}
+          <img src="{{ a.logo | relative_url }}" alt="{{ a.title | default: a.name }}" style="width:18px;" class="mr-1 mt-1">
         {% endif %}
         <div class="media-body">
-          {%- assign raw = item.title | default: item.name -%}
-          {%- assign parts = raw | split: '<ul' -%}
-          <div class="d-flex">
-            <div><strong>{{ parts[0] | strip }}</strong></div>
-            <div class="ml-auto mt-auto no-break"><em>{{ item.date }}</em></div>
+          <div class="d-flex award-row">
+            <div class="item-title">{{ a.title | default: a.name }}</div>
+            <div class="ml-auto mt-auto no-break"><em>{{ a.date }}</em></div>
           </div>
 
-          {%- comment -%}
-          1) YAML에 details 배열이 있으면 bullet로 출력
-          2) 아니면 name 내부의 <ul ...>부터를 상세로 출력
-          {%- endcomment -%}
-          {% if item.details %}
-            <ul class="small mb-0 mt-1 pl-4">
-              {% for d in item.details %}
+          {% if a.details %}
+          <ul class="small pl-4 mb-0">
+            {% for d in a.details %}
               <li>{{ d }}</li>
-              {% endfor %}
-            </ul>
-          {% elsif parts.size > 1 %}
-            {{ '<ul' | append: parts[1] }}
+            {% endfor %}
+          </ul>
           {% endif %}
         </div>
       </li>
@@ -84,6 +76,7 @@
   </div>
 </div>
 {% endif %}
+
 
 
 
