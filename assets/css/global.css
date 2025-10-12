@@ -90,7 +90,7 @@ div.lazy {
     font-family: Courier, monospace;
 }
 
-/* ====== SUIN site: unified typography & spacing (append at end) ====== */
+/* /* ====== SUIN site: unified typography & spacing (append at end) ====== */
 
 /* 1) 웹폰트(영문 Inter + 한글 Noto Sans KR) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
@@ -189,10 +189,4 @@ li.media .media-body > div:first-child {
   padding: 6px 10px 10px;
   color:#5f6368;
 }
-
-/* 모바일에서 조금 더 크게 보이도록 */
-@media (max-width:576px){
-  .pl-item{ min-width: 75%; }
-  .pl-item img{ height: 260px; }
-}
-
+ */
