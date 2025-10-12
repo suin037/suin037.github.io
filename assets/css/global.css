@@ -178,3 +178,19 @@
 .award-banner{ margin: 6px auto 12px; }
 */
 
+/* Awards 배너 이미지 크기 제한 (다른 규칙보다 뒤에 배치) */
+.card ul.list > li img.award-banner{
+  display: block;
+  max-width: 480px !important;   /* 원하는 최대 가로폭 (예: 420~560px로 조절) */
+  width: 100% !important;        /* 반응형으로 줄어듦 (max-width가 상한) */
+  height: auto !important;       /* 비율 유지 */
+  border-radius: 10px;
+  margin: 6px 0 12px;            /* 위/아래 여백 */
+}
+
+/* 큰 화면에서 더 작게 보이고 싶으면 (선택 사항) */
+@media (min-width: 992px){
+  .card ul.list > li img.award-banner{
+    max-width: 440px !important;
+  }
+}
