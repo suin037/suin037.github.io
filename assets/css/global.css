@@ -101,7 +101,7 @@
   .pl-item img{ height: 260px; }
 }
 
-/* Awards: 왼쪽 제목(예: 2025 Creative Convergence … 4th Place) */
+/* /* Awards: 왼쪽 제목(예: 2025 Creative Convergence … 4th Place) */
 .card ul.list.small > li > .d-flex > div:first-child{
   font-size: var(--item-title-size) !important;
   font-weight: var(--item-title-weight) !important;
@@ -140,4 +140,20 @@
 /* Awards: 제목과 아래 설명(bullet) 사이 간격 늘리기 */
 .card ul.list.small > li > .d-flex + ul {
   margin-top: 12px; /* 원하는 간격으로 조절하세요 (예: 10px, 15px) */
+} */
+/* =========================================
+   Awards 섹션 스타일
+   ========================================= */
+
+/* 1) Awards 제목 스타일 (글자 크기, 굵기) */
+.card ul.list.small > li > .d-flex > div:first-child {
+  /* !important 속성을 제거하고 이곳에서 직접 값을 지정해야 충돌이 없습니다. */
+  font-size: 1.25rem;   /* <<< 이 값을 원하시는 크기로 조절하세요 (예: 1.3rem, 20px) */
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* 2) Awards 제목과 아래 설명(bullet) 사이 간격 */
+.card ul.list.small > li > .d-flex + ul {
+  margin-top: 12px;     /* <<< 이 값을 원하시는 간격으로 조절하세요 (예: 15px) */
 }
