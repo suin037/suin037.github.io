@@ -1,208 +1,27 @@
-@charset "utf-8";
-body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    padding-top: 5.0rem;
-}
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: 700;
-}
-
-.card {
-    border-radius: 0.8rem!important;
-}
-
-.card-img-overlay {
-    border-radius: 0.8rem!important;
-}
-
-.rounded-xl {
-    border-radius: 0.8rem!important;
-}
-
-.rounded-xl-bottom {
-    border-bottom-right-radius: 0.8rem !important;
-    border-bottom-left-radius: 0.8rem !important;
-}
-
-.rounded-xl-top {
-    border-top-left-radius: 0.8rem !important;
-    border-top-right-radius: 0.8rem !important;
-}
-
-
-.text-profile-position {
-    font-weight: 400;
-}
-
-.text-profile-bio {
-    /* font-family: "Raleway"; */
-    font-weight: 400;
-}
-
-.navbar {
-    opacity: 0.95;
-}
-
-.inline-badge {
-    height: 16px;
-    vertical-align: -10%;
-    margin-right: 2px;
-    line-break: unset;
-}
-
-.no-break {
-    white-space: nowrap;
-}
-
-.cover-image {
-    width: 180px;
-    max-height: 120px;
-}
-
-.abstract-body {
-    min-height: 100px;
-}
-
-img.lazy {
-    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 50px 50px;
-    min-height: 80px;
-}
-
-div.lazy {
-    background-image: url('images/loading.gif');
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 50px 50px;
-    min-height: 80px;
-}
-
-.badge-publication {
-    font-size: 100%;
-}
-
-.email-text {
-    font-family: Courier, monospace;
-}
-/* === Personal Life horizontal gallery === */
-.pl-gallery{
-  display:flex;
-  gap:16px;
-  padding: 6px 2px 10px 2px;
-  overflow-x:auto;               /* 가로 스크롤 */
-  scroll-snap-type: x mandatory; /* 스냅 스크롤 */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-}
-.pl-gallery:focus{ outline:none; }
-
-.pl-item{
-  flex: 0 0 auto;                /* 줄바꿈 없이 가로로 나열 */
-  scroll-snap-align: start;
-  overflow:hidden;               /* 모서리 둥글게 자르기 */
-  background:#f8f9fa;
-  min-width: 260px;              /* 카드 너비 */
-  max-width: 360px;
-}
-
-.pl-item img{
-  display:block;
-  width:100%;
-  height:360px;                  /* 세로 높이 고정 */
-  object-fit: cover;             /* 센터 크롭 */
-}
-
-.pl-cap{
-  padding: 6px 10px 10px;
-  color:#5f6368;
-}
-
-/* 모바일에서 조금 더 크게 보이도록 */
-@media (max-width:576px){
-  .pl-item{ min-width: 75%; }
-  .pl-item img{ height: 260px; }
-}
-
 /* ==== Row style like News: divider + fixed right date column ==== */
+:root{
+  --row-border: #e9ecef;      /* 연한 구분선 */
+  --row-pad: 18px;            /* 행 여백 */
+  --date-width: 180px;        /* 날짜 고정폭 (160~200px 조절 가능) */
+}
 
-/* 1) Education/Experience: 각 항목(li.media)을 한 줄(row)로 만들고 구분선 적용 */
+/* Education / Experience: 한 줄 + 구분선 */
 .card ul.list-unstyled > li.media{
   display: flex;
-  border-bottom: 1px solid rgba(0,0,0,.10);
-  padding: 12px 0;
-}
-.card ul.list-unstyled > li.media:last-child{
-  border-bottom: none;
-}
-
-/* 2) Awards: li 안의 .d-flex(제목 + 날짜)에도 같은 구분선 적용 */
-.card ul.list > li > .d-flex{
-  border-bottom: 1px solid rgba(0,0,0,.10);
-  padding: 12px 0;
-}
-.card ul.list > li:last-child > .d-flex{
-  border-bottom: none;
-}
-
-/* 3) 오른쪽 날짜 컬럼을 News처럼 통일(고정 폭, 우측 정렬, 이탤릭/그레이) */
-.card .d-flex .no-break{
-  margin-left: auto;
-  text-align: right;
-  color: #4a4f55;
-  font-style: italic;
-  flex: 0 0 180px;   /* 날짜 폭(News 느낌). 필요시 160~200px로 조절 */
-  max-width: 180px;
-}
-.card li.media .media-body > .d-flex > div:first-child{
-  padding-right: 16px;  /* 날짜 칼럼과 간격 */
-}
-
-/* 4) 행 내부 타이포 밀도/간격 살짝 정리(선택) */
-.card ul.list-unstyled > li.media .small,
-.card ul.list > li > .d-flex + ul {
-  margin-top: 6px;
-}
-.card ul.list-unstyled > li.media .media-body > div:first-child {
-  font-weight: 600;
-}
-
-/* 5) 모바일에서 날짜 폭 살짝 줄이기 */
-@media (max-width: 576px){
-  .card .d-flex .no-break{
-    flex-basis: 140px;
-    max-width: 140px;
-  }
-}
-
-
-
-/* === polish: News 톤과 완전 동일하게 + 레이아웃 안전장치 === */
-:root{
-  --row-border: #e9ecef;  /* News와 비슷한 연한 선색 */
-  --row-pad: 18px;        /* 행 위/아래 여백 */
-  --date-width: 180px;    /* 오른쪽 날짜 고정폭 (160~200px로 조절 가능) */
-}
-
-/* Education / Experience 한 줄 스타일 + 구분선/간격 */
-.card ul.list-unstyled > li.media{
+  align-items: flex-start;
   border-bottom: 1px solid var(--row-border);
   padding: var(--row-pad) 0;
 }
 .card ul.list-unstyled > li.media:last-child{ border-bottom: none; }
 
-/* Awards 제목줄(제목+날짜)도 같은 라인 스타일 */
+/* Awards: 제목줄(제목+날짜)도 같은 라인 스타일 */
 .card ul.list > li > .d-flex{
   border-bottom: 1px solid var(--row-border);
   padding: var(--row-pad) 0;
 }
 .card ul.list > li:last-child > .d-flex{ border-bottom: none; }
 
-/* 오른쪽 날짜 칼럼 고정/정렬 (News 느낌) */
+/* 오른쪽 날짜 고정/정렬 */
 .card .d-flex .no-break{
   flex: 0 0 var(--date-width);
   max-width: var(--date-width);
@@ -210,33 +29,63 @@ div.lazy {
   text-align: right;
   color: #4a4f55;
   font-style: italic;
+  white-space: nowrap;
 }
 
-/* 긴 텍스트가 날짜 칼럼을 밀지 않도록 안전장치 */
+/* 본문이 날짜를 밀지 않도록 */
 .media-body{ flex: 1 1 auto; min-width: 0; }
 
-/* --- Fix: Personal Life horizontal gallery always scrolls horizontally --- */
+/* 내부 타이포 간격 */
+.card ul.list-unstyled > li.media .small,
+.card ul.list > li > .d-flex + ul { margin-top: 6px; }
+.card ul.list-unstyled > li.media .media-body > div:first-child { font-weight: 600; }
+
+/* 작은 화면에서 날짜 폭 축소 */
+@media (max-width: 768px){
+  :root { --date-width: 150px; }
+}
+@media (max-width: 576px){
+  :root { --date-width: 130px; }
+}
+
+
+/* --- Personal Life: 항상 가로 스크롤 --- */
 .pl-gallery{
   display: flex;
-  flex-wrap: nowrap !important;   /* 절대 줄바꿈 금지 */
+  flex-wrap: nowrap !important;   /* 줄바꿈 금지 */
   overflow-x: auto !important;    /* 가로 스크롤 */
-  overflow-y: hidden;             /* 세로 스크롤 방지 */
+  overflow-y: hidden;
   gap: 16px;
+  padding: 6px 2px 10px;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
 }
+.pl-gallery:focus{ outline: none; }
 
-.pl-gallery > *{
-  flex: 0 0 auto !important;      /* 아이템이 줄바꿈 되지 않도록 고정 */
-}
+.pl-gallery > *{ flex: 0 0 auto !important; }
 
 .pl-item{
+  overflow: hidden;
+  background: #f8f9fa;
   min-width: 260px;
   max-width: 360px;
+  scroll-snap-align: start;
+  border-radius: .5rem;           /* 살짝 둥글게(선택) */
+}
+.pl-item img{
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+.pl-cap{
+  padding: 6px 10px 10px;
+  color: #5f6368;
 }
 
+/* 모바일에서 조금 더 크게 */
 @media (max-width:576px){
   .pl-item{ min-width: 75%; }
   .pl-item img{ height: 260px; }
 }
-
