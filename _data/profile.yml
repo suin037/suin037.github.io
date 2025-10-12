@@ -21,7 +21,7 @@ portrait_url: /assets/photos/profile.jpg
 #   Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
 
 education:
-- name: <strong>Yonsei University</strong>, Seoul
+- name: <strong>Yonsei University, Seoul</strong>
   logo: /assets/photos/yonsei_logo.png
   position: >- 
     B.S. in Artificial Intelligence
