@@ -29,6 +29,20 @@
 .card ul.list-unstyled > li.media .media-body > .d-flex > div:first-child {
   font-weight: 600;
 }
+/* Awards: 제목(첫 줄)은 굵게 — 이미 적용된 규칙 유지 */
+.card ul.list.small > li > .d-flex > div:first-child {
+  font-weight: 600 !important;
+}
+
+/* Awards: 서브 항목(두 번째 줄 이하) 톤을 가볍게 */
+.card ul.list.small > li > ul {
+  color: #5f6368;       /* 연한 회색 */
+  font-size: 0.95rem;   /* 살짝 작게(원래 크기로 두려면 이 줄 지워도 됨) */
+  line-height: 1.6;
+}
+.card ul.list.small > li > ul li {
+  font-weight: 400 !important;  /* 굵기 정상(가볍게) */
+}
 
 
 
