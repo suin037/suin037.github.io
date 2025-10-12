@@ -102,3 +102,10 @@
 @media (max-width: 576px){
   :root{ --award-pic: 44px; }
 }
+awards:
+  - name: >-
+      2025 Creative Convergence Design Engineering Camp, 4th Place
+      <img class="award-pic" src="/assets/images/awards/camp.jpg" alt="Camp photo">
+    date: Aug. 2025
+    # 아래 bullet들은 그대로 (굵게 되지 않고 본문 톤 유지)
+    # - ...
